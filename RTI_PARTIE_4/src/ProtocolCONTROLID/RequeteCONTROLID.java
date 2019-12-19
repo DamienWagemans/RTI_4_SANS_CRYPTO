@@ -34,7 +34,9 @@ public class RequeteCONTROLID implements Requete , Serializable{
     public static int LOGIN = 1;
     public static int VERIF_IMMATRICULATION = 2;
     public static int VERIF_VOYAGEUR = 3;
+    public static int GET_POST = 4;
 
+    
     
     public static int STOP = -1;
     
@@ -78,6 +80,7 @@ public class RequeteCONTROLID implements Requete , Serializable{
     
     public void TraitementRequete(Socket s, Socket Sock_internat, Statement instruct) 
     {
+        myProperties = Persistance_Properties.LoadProp(pathLogin);
         int Login = 0;
         try 
         {
@@ -101,6 +104,10 @@ public class RequeteCONTROLID implements Requete , Serializable{
                         System.out.println("Dans verif voyageur");
                         verif_voyageur(s, Sock_internat, instruct);
                         break;
+                    case 4:
+                        System.out.println("Dans get post");
+                        get_post(s);
+                        break;
 
                       
                 }
@@ -116,6 +123,12 @@ public class RequeteCONTROLID implements Requete , Serializable{
         } 
     }
     
+    public void get_post(Socket Sock) throws IOException {
+         int num = (int)getObjectClasse();
+         System.out.println("Le portier c'est connecter au post: " + num);
+         ReponseCONTROLID rep = new ReponseCONTROLID(0, true);
+         rep.EnvoieReponse(Sock);
+    }
     
     public int TraiterRequeteLogin(Socket sock, Statement instruc) throws IOException
     {
@@ -125,7 +138,7 @@ public class RequeteCONTROLID implements Requete , Serializable{
         String adresseDistante = sock.getRemoteSocketAddress().toString(); 
         System.out.println("Début de traiteRequete : adresse distante = " + adresseDistante);
         String pass = myProperties.getProperty(log.getUsername());
-        
+        System.out.println("Trouver: " + pass);
         ReponseCONTROLID rep;
         if(pass != null){
             rep = new ReponseCONTROLID(ReponseCONTROLID.LOGIN_OK, null);

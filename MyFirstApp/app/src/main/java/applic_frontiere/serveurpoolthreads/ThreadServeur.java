@@ -7,13 +7,18 @@ package applic_frontiere.serveurpoolthreads;
 
 import ProtocolCONTROLID.RequeteCONTROLID;
 import interface_req_rep.Requete;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author damien
@@ -52,7 +57,7 @@ public class ThreadServeur extends Thread{
     }
     
     
-    public ThreadServeur(int p, int nbr_c, SourceTaches st, Socket socket_c) 
+    public ThreadServeur(int p, int nbr_c, SourceTaches st, Socket socket_c)
     {
         nbr_client = nbr_c;
         port = p; 
@@ -75,7 +80,7 @@ public class ThreadServeur extends Thread{
         // Démarrage du pool de threads
         for (int i=0; i<nbr_client; i++)
         {
-            ThreadClient thr = new ThreadClient (tachesAExecuter, "Thread du pool n°" + String.valueOf(i));
+            ThreadClient thr = new ThreadClient(tachesAExecuter, "Thread du pool n°" + String.valueOf(i));
             thr.start(); 
         }
         try{

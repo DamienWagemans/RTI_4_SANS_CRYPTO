@@ -66,8 +66,8 @@ public class ThreadServeur extends Thread{
             
             //connexion a la nouvelle bd
             
-            Connection con= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/ORCL","BD_INTERNAT","Damien");
-            //Connection con= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","RTI2","unizuniz1999");
+            //Connection con= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/ORCL","BD_INTERNAT","Damien");
+            Connection con= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","RTI4","unizuniz1999");
             System.out.println("Connexion à la BDD RTI réalisée");
             instruc= con.createStatement();
             System.out.println("Création d'une instance d'instruction pour cette connexion");
