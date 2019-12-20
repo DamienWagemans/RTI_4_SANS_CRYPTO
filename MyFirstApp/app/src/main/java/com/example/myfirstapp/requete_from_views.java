@@ -1,12 +1,14 @@
-package ApplicVehicule;
+package com.example.myfirstapp;
 
 import android.os.AsyncTask;
 
+import ClassesCONTROLID.Login;
 import ClassesRequeteViews.ConnectToServer;
 import ProtocolCONTROLID.ReponseCONTROLID;
 import ProtocolCONTROLID.RequeteCONTROLID;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.Socket;
 
 public class requete_from_views extends AsyncTask <Void, Void, Object>{
@@ -34,8 +36,7 @@ public class requete_from_views extends AsyncTask <Void, Void, Object>{
     }
 
 
-    public requete_from_views()
-    {
+    public requete_from_views(){
         Requete = null;
         Type = NONE;
     }

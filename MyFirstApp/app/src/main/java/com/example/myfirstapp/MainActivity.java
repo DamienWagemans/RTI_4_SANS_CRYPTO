@@ -1,4 +1,4 @@
-package ApplicVehicule;
+package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,13 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.Applic_Vehicule.R;
-
 import ClassesCONTROLID.Login;
 import ClassesRequeteViews.ConnectToServer;
 import ProtocolCONTROLID.ReponseCONTROLID;
 import ProtocolCONTROLID.RequeteCONTROLID;
 
+import java.io.IOException;
+import java.net.Socket;
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {

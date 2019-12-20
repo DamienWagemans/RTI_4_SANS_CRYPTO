@@ -1,4 +1,4 @@
-package ApplicVehicule;
+package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,12 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.Applic_Vehicule.R;
-
 import java.util.concurrent.ExecutionException;
 
 import ProtocolCONTROLID.ReponseCONTROLID;
 import ProtocolCONTROLID.RequeteCONTROLID;
+import interface_req_rep.Requete;
 
 public class CustomsPostActivity extends AppCompatActivity {
 
