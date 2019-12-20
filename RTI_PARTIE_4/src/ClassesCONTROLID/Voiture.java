@@ -49,4 +49,10 @@ public class Voiture implements Serializable{
         this.Etat = v.Etat;
     }
     
+    public Voiture ()
+    {
+        this.Immatriculation = "aucun";
+        this.Etat = "aucun";
+    }
+    
 }

@@ -17,6 +17,7 @@ import java.net.Socket;
  * @author Dos Santos
  */
 public class ReponseCONTROLID implements Reponse, Serializable{
+    public static int ACK = 200;
     public static int LOGIN_OK = 201;
     public static int IMMAT_OK = 202;
     public static int VOYAGEUR_OK = 203;
@@ -27,7 +28,7 @@ public class ReponseCONTROLID implements Reponse, Serializable{
     public static int VOYAGEUR_FAIL = 503;
 
 
-
+    
     
     
     

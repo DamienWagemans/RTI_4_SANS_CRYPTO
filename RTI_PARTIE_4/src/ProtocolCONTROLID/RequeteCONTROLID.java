@@ -10,7 +10,10 @@ import ClassesCONTROLID.Login;
 import ClassesCONTROLID.Voyageur;
 import interface_req_rep.Requete;
 import database.*;
+import divers.Config_Applic;
+import static divers.Config_Applic.pathLog;
 import static divers.Config_Applic.pathLogin;
+import divers.Fichier_log;
 import divers.Persistance_Properties;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -35,6 +38,8 @@ public class RequeteCONTROLID implements Requete , Serializable{
     public static int VERIF_IMMATRICULATION = 2;
     public static int VERIF_VOYAGEUR = 3;
     public static int GET_POST = 4;
+    public static int DECLARER_ACCIDENT = 5;
+    public static int STICKERS = 6;
 
     
     
@@ -108,6 +113,14 @@ public class RequeteCONTROLID implements Requete , Serializable{
                         System.out.println("Dans get post");
                         get_post(s);
                         break;
+                    case 5:
+                        System.out.println("Declarer accident");
+                        declarer_accident(s);
+                        break;
+                    case 6:
+                        aposer_stickers(s);
+                        break;
+                        
 
                       
                 }
@@ -123,8 +136,29 @@ public class RequeteCONTROLID implements Requete , Serializable{
         } 
     }
     
-    public void get_post(Socket Sock) throws IOException {
+    public void aposer_stickers(Socket s) throws IOException
+    {
+        System.out.println("Ecriture dans fichier log, accident");
+        Voiture voiture = new Voiture();
+        voiture = (Voiture)this.getObjectClasse();
+        
+        Fichier_log.Ecrire("Voiture en file : " + voiture.getImmatriculation() + " Stickers : "+ voiture.getEtat(), Config_Applic.pathFile);
+        ReponseCONTROLID rep = new ReponseCONTROLID(ReponseCONTROLID.ACK, null);
+        rep.EnvoieReponse(s);
+    }
+    
+    public void declarer_accident(Socket sock) throws IOException
+    {
+        System.out.println("Ecriture dans fichier log, accident");
+        Fichier_log.Ecrire("Accident déclaré : " + (String)this.getObjectClasse(), pathLog);
+        ReponseCONTROLID rep = new ReponseCONTROLID(ReponseCONTROLID.ACK, null);
+        rep.EnvoieReponse(sock);
+    }
+    
+    public void get_post(Socket Sock) throws IOException 
+    {
          int num = (int)getObjectClasse();
+         Fichier_log.Ecrire("Un portier s'est connecté au poste : "+num, pathLog);
          System.out.println("Le portier c'est connecter au post: " + num);
          ReponseCONTROLID rep = new ReponseCONTROLID(0, true);
          rep.EnvoieReponse(Sock);
