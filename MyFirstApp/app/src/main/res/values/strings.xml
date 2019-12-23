@@ -11,9 +11,16 @@
     <string name="text_plaque">Immatriculation Plate</string>
     <string name="button_verif">Check</string>
     <string name="text_action">Action</string>
-    <string name="button_send">Send</string>
+    <string name="button_send">Declarer un accident</string>
     <string name="sub_title_activity_task">CheckPlate</string>
     <string name="sub_title_activity_task2">SendAction</string>
     <string name="sub_title_activity_task3">ChangePost</string>
     <string name="button_return_post">Change</string>
+    <string name="hint_declarer_accider">Declarer accident</string>
+    <string name="activity_good">Sticker VERT</string>
+    <string name="activity_bad">Sticker ROUGE</string>
+    <string name="CONFIRMATION">CONFIRMATION</string>
+
+
+
 </resources>

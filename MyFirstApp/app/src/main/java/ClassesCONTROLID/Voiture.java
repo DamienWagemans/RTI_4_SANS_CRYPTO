@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ClassesCONTROLID;
 
 import java.io.Serializable;
@@ -41,12 +36,18 @@ public class Voiture implements Serializable{
         this.Immatriculation = Immatriculation;
         this.Etat = Etat;
     }
-    
-    
+
+
     public Voiture (Voiture v)
     {
         this.Immatriculation = v.Immatriculation;
         this.Etat = v.Etat;
     }
-    
+
+    public Voiture ()
+    {
+        this.Immatriculation = "aucun";
+        this.Etat = "aucun";
+    }
+
 }

@@ -2,6 +2,7 @@ package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,6 @@ public class TaskActivity extends AppCompatActivity {
     private Button check;
 
     private EditText numPlate;
-    private EditText action;
 
     private TaskActivity TaskActivity = this;
     @Override
@@ -33,13 +33,14 @@ public class TaskActivity extends AppCompatActivity {
         this.send = findViewById(R.id.buttonSend);
         this.check = findViewById(R.id.buttonCheck);
         this.numPlate = findViewById(R.id.numPlate);
-        this.action = findViewById(R.id.actionFromGarde);
 
 
         this.change.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View v)
+            {
+                Intent otherActivity = new Intent(getBaseContext(), CustomsPostActivity.class);
+                startActivity(otherActivity);
             }
         });
 
@@ -58,9 +59,17 @@ public class TaskActivity extends AppCompatActivity {
                     if(rep.getTypeRequete() == ReponseCONTROLID.IMMAT_OK){
                         //vert
                         Toast.makeText(TaskActivity, "Vert", Toast.LENGTH_LONG).show();
+                        Intent otherActivity = new Intent(getBaseContext(), GoodStickersActivity.class);
+                        otherActivity.putExtra("voiture", voiture);
+                        otherActivity.putExtra("numero_poste",getIntent().getIntExtra("numero_poste", 0));
+                        startActivity(otherActivity);
                     }else{
                         //rouge
                         Toast.makeText(TaskActivity, "Rouge", Toast.LENGTH_LONG).show();
+                        Intent otherActivity = new Intent(getBaseContext(), BadStickersActivity.class);
+                        otherActivity.putExtra("voiture", voiture);
+                        otherActivity.putExtra("numero_poste",getIntent().getIntExtra("numero_poste", 0));
+                        startActivity(otherActivity);
                     }
                 } catch (ExecutionException e) {
                     e.printStackTrace();
@@ -73,7 +82,9 @@ public class TaskActivity extends AppCompatActivity {
         this.send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent otherActivity = new Intent(getBaseContext(), IncidentActivity.class);
+                otherActivity.putExtra("numero_poste",getIntent().getIntExtra("numero_poste", 0));
+                startActivity(otherActivity);
             }
         });
     }

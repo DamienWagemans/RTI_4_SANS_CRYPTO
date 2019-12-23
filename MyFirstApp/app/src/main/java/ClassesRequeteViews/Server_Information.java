@@ -1,6 +1,6 @@
 package ClassesRequeteViews;
 
-public class ConnectToServer {
+public class Server_Information {
     private String Ip;
     private int Port;
 
@@ -20,12 +20,12 @@ public class ConnectToServer {
         this.Port = Port;
     }
 
-    public ConnectToServer(){
+    public Server_Information(){
         Port = 0;
         Ip = "";
     }
 
-    public ConnectToServer(int Port, String Ip){
+    public Server_Information(int Port, String Ip){
         this.Port = Port;
         this.Ip = Ip;
     }

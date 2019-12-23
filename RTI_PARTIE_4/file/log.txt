@@ -1,5 +1,0 @@
-Un portier s'est connecté au poste : 7
-Un portier s'est connecté au poste : 8
-Accident déclaré : attentat
-Un portier s'est connecté au poste : 3
-Un portier s'est connecté au poste : 9

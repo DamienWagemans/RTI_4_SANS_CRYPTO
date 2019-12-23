@@ -10,12 +10,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import ClassesCONTROLID.Login;
-import ClassesRequeteViews.ConnectToServer;
+import ClassesRequeteViews.Server_Information;
 import ProtocolCONTROLID.ReponseCONTROLID;
 import ProtocolCONTROLID.RequeteCONTROLID;
 
-import java.io.IOException;
-import java.net.Socket;
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity, "Champs Obligatoire", Toast.LENGTH_LONG).show();
                     else{
                         requete_from_views rfv = new requete_from_views();
-                        ConnectToServer cts = new ConnectToServer(Integer.parseInt(Port.getText().toString()), Ip.getText().toString());
+                        Server_Information cts = new Server_Information(Integer.parseInt(Port.getText().toString()), Ip.getText().toString());
                         rfv.setRequete(cts);
                         rfv.setType(requete_from_views.CONNECT);
                         if((boolean)rfv.execute().get()){

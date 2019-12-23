@@ -24,8 +24,12 @@ public class CustomsPostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customs_post);
+
+
         this.buttonOk = findViewById(R.id.buttonOk);
         this.numPost  = findViewById(R.id.numPost);
+
+
         this.buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,19 +38,35 @@ public class CustomsPostActivity extends AppCompatActivity {
                     requete_from_views rfv = new requete_from_views();
                     RequeteCONTROLID req = new RequeteCONTROLID();
                     req.setObjectClasse(num);
-                    if(num == 0){
-                        req.setTypeRequete(RequeteCONTROLID.STOP);
-                    }else{
-                        req.setTypeRequete(RequeteCONTROLID.GET_POST);
+                    if(num == 0)
+                    {
+                        Disconnect stop = new Disconnect();
+                        if((boolean)stop.execute().get()==true)
+                        {
+                            Toast.makeText(CustomsPostActivity.this, "Déconnecté avec succes", Toast.LENGTH_SHORT).show();
+                            Intent otherActivity = new Intent(getBaseContext(), MainActivity.class);
+                            startActivity(otherActivity);
+                        }
+                        else
+                        {
+                            Toast.makeText(CustomsPostActivity.this, "Erreur de déconnection", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
-                    rfv.setType(requete_from_views.SEND_REQUEST);
-                    rfv.setRequete(req);
-                    ReponseCONTROLID rep = (ReponseCONTROLID)rfv.execute().get();
-                    if((boolean)rep.getObjectClasse() == true){
-                        //next view
-                        Toast.makeText(CustomsPostActivity.this, "Post effectuer", Toast.LENGTH_SHORT).show();
-                        Intent otherActivity = new Intent(getBaseContext(), TaskActivity.class);
-                        startActivity(otherActivity);
+                    else
+                    {
+                        req.setTypeRequete(RequeteCONTROLID.GET_POST);
+
+                        rfv.setType(requete_from_views.SEND_REQUEST);
+                        rfv.setRequete(req);
+                        ReponseCONTROLID rep = (ReponseCONTROLID) rfv.execute().get();
+                        if ((boolean) rep.getObjectClasse() == true) {
+                            //next view
+                            Toast.makeText(CustomsPostActivity.this, "Connecté au poste", Toast.LENGTH_SHORT).show();
+                            Intent otherActivity = new Intent(getBaseContext(), TaskActivity.class);
+                            otherActivity.putExtra("numero_poste", num);
+                            startActivity(otherActivity);
+                        }
                     }
                 } catch (ExecutionException e) {
                     e.printStackTrace();

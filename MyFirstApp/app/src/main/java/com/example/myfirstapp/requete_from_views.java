@@ -2,13 +2,11 @@ package com.example.myfirstapp;
 
 import android.os.AsyncTask;
 
-import ClassesCONTROLID.Login;
-import ClassesRequeteViews.ConnectToServer;
+import ClassesRequeteViews.Server_Information;
 import ProtocolCONTROLID.ReponseCONTROLID;
 import ProtocolCONTROLID.RequeteCONTROLID;
 
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.Socket;
 
 public class requete_from_views extends AsyncTask <Void, Void, Object>{
@@ -18,6 +16,7 @@ public class requete_from_views extends AsyncTask <Void, Void, Object>{
     public static int NONE = 0;
     public static int CONNECT = 1;
     public static int SEND_REQUEST = 2;
+    public static int DISCONNECT = 3;
 
     public Object getRequete() {
         return Requete;
@@ -50,7 +49,7 @@ public class requete_from_views extends AsyncTask <Void, Void, Object>{
     protected Object doInBackground(Void... voids) {
         switch(Type){
             case 1:
-                ConnectToServer cts= (ConnectToServer) getRequete();
+                Server_Information cts= (Server_Information) getRequete();
                 try {
                     Reseaux.setCli_Socket(new Socket(cts.getIp(), cts.getPort()));
                     return true;
@@ -71,6 +70,14 @@ public class requete_from_views extends AsyncTask <Void, Void, Object>{
                     e.printStackTrace();
                 }
                 break;
+            case 3:
+                try {
+                    Reseaux.getCli_Socket().close();
+                    return true;
+                } catch (IOException e) {
+                    return false;
+                }
+
         }
         return null;
     }

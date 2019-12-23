@@ -55,16 +55,7 @@
             android:text="@string/sub_title_activity_task2"
             android:textSize="20sp"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/actionFromGarde"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/text_action"/>
-    </LinearLayout>
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">

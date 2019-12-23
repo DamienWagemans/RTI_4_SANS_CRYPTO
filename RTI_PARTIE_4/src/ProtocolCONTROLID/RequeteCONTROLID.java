@@ -149,8 +149,8 @@ public class RequeteCONTROLID implements Requete , Serializable{
     
     public void declarer_accident(Socket sock) throws IOException
     {
-        System.out.println("Ecriture dans fichier log, accident");
-        Fichier_log.Ecrire("Accident déclaré : " + (String)this.getObjectClasse(), pathLog);
+        System.out.println("Ecriture dans fichier log, accident : "+ (String)this.getObjectClasse());
+        Fichier_log.Ecrire("Accident déclaré : POSTE : " + (String)this.getObjectClasse(), pathLog);
         ReponseCONTROLID rep = new ReponseCONTROLID(ReponseCONTROLID.ACK, null);
         rep.EnvoieReponse(sock);
     }
@@ -159,7 +159,7 @@ public class RequeteCONTROLID implements Requete , Serializable{
     {
          int num = (int)getObjectClasse();
          Fichier_log.Ecrire("Un portier s'est connecté au poste : "+num, pathLog);
-         System.out.println("Le portier c'est connecter au post: " + num);
+         System.out.println("Le portier s'est connecté au poste: " + num);
          ReponseCONTROLID rep = new ReponseCONTROLID(0, true);
          rep.EnvoieReponse(Sock);
     }
