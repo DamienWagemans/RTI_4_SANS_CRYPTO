@@ -43,13 +43,13 @@ public class CustomsPostActivity extends AppCompatActivity {
                         Disconnect stop = new Disconnect();
                         if((boolean)stop.execute().get()==true)
                         {
-                            Toast.makeText(CustomsPostActivity.this, "Déconnecté avec succes", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CustomsPostActivity.this, "OK", Toast.LENGTH_SHORT).show();
                             Intent otherActivity = new Intent(getBaseContext(), MainActivity.class);
                             startActivity(otherActivity);
                         }
                         else
                         {
-                            Toast.makeText(CustomsPostActivity.this, "Erreur de déconnection", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CustomsPostActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
                         }
 
                     }

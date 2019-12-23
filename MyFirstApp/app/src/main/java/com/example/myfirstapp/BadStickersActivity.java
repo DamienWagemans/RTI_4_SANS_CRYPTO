@@ -58,14 +58,14 @@ public class BadStickersActivity extends AppCompatActivity {
                 }
                 if(rep.getTypeRequete() == ReponseCONTROLID.ACK){
                     //vert
-                    Toast.makeText(BadStickersActivity.this, "Confirmé !", Toast.LENGTH_LONG).show();
+                    Toast.makeText(BadStickersActivity.this, "OK !", Toast.LENGTH_LONG).show();
                     Intent otherActivity = new Intent(getBaseContext(), TaskActivity.class);
                     otherActivity.putExtra("numero_poste",getIntent().getIntExtra("numero_poste", 0));
                     startActivity(otherActivity);
                 }
                 else
                 {
-                    Toast.makeText(BadStickersActivity.this, "Erreur", Toast.LENGTH_LONG).show();
+                    Toast.makeText(BadStickersActivity.this, "ERROR", Toast.LENGTH_LONG).show();
                 }
             }
         });

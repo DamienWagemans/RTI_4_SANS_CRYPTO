@@ -50,14 +50,14 @@ public class IncidentActivity extends AppCompatActivity {
                 }
                 if(rep.getTypeRequete() == ReponseCONTROLID.ACK){
                     //next view
-                    Toast.makeText(IncidentActivity.this, "Accident déclaré", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IncidentActivity.this, "OK", Toast.LENGTH_SHORT).show();
                     Intent otherActivity = new Intent(getBaseContext(), TaskActivity.class);
                     otherActivity.putExtra("numero_poste",getIntent().getIntExtra("numero_poste", 0));
                     startActivity(otherActivity);
                 }
                 else
                 {
-                    Toast.makeText(IncidentActivity.this, "Erreur lors de l'envoi", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IncidentActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
                 }
             }
         });

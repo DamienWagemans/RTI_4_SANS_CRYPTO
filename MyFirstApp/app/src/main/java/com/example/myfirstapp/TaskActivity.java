@@ -58,14 +58,12 @@ public class TaskActivity extends AppCompatActivity {
                     rep = (ReponseCONTROLID) rfv.execute().get();
                     if(rep.getTypeRequete() == ReponseCONTROLID.IMMAT_OK){
                         //vert
-                        Toast.makeText(TaskActivity, "Vert", Toast.LENGTH_LONG).show();
                         Intent otherActivity = new Intent(getBaseContext(), GoodStickersActivity.class);
                         otherActivity.putExtra("voiture", voiture);
                         otherActivity.putExtra("numero_poste",getIntent().getIntExtra("numero_poste", 0));
                         startActivity(otherActivity);
                     }else{
                         //rouge
-                        Toast.makeText(TaskActivity, "Rouge", Toast.LENGTH_LONG).show();
                         Intent otherActivity = new Intent(getBaseContext(), BadStickersActivity.class);
                         otherActivity.putExtra("voiture", voiture);
                         otherActivity.putExtra("numero_poste",getIntent().getIntExtra("numero_poste", 0));

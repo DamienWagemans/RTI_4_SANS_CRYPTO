@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">MyFirstApp</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="button_login">identificación</string>
+    <string name="text_ip">Ip</string>
+    <string name="text_port">Port</string>
+    <string name="title_activity_custom">CustomsPostActivity</string>
+    <string name="text_post">número de extensión</string>
+    <string name="button_connect">conexión</string>
+    <string name="title_activity_task">Task Activity</string>
+    <string name="text_plaque">matrícula</string>
+    <string name="button_verif">comprobar</string>
+    <string name="text_action">acción</string>
+    <string name="button_send">reportar un accidente</string>
+    <string name="sub_title_activity_task">placa de control</string>
+    <string name="sub_title_activity_task2">enviar a</string>
+    <string name="sub_title_activity_task3">cambiar de posición</string>
+    <string name="button_return_post">cambiar</string>
+    <string name="hint_declarer_accider">Reportar un accidente</string>
+    <string name="activity_good">Sticker GREEN</string>
+    <string name="activity_bad">Sticker RED</string>
+    <string name="CONFIRMATION">CONFIRM</string>
+</resources>

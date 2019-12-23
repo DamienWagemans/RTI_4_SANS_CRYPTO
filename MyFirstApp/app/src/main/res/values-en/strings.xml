@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">MyFirstApp</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="button_login">Login</string>
+    <string name="text_ip">Ip</string>
+    <string name="text_port">Port</string>
+    <string name="title_activity_custom">CustomsPostActivity</string>
+    <string name="text_post">Number of Post</string>
+    <string name="button_connect">Connect</string>
+    <string name="title_activity_task">Task Activity</string>
+    <string name="text_plaque">Immatriculation Plate</string>
+    <string name="button_verif">Check</string>
+    <string name="text_action">Action</string>
+    <string name="button_send">Declare Accident</string>
+    <string name="sub_title_activity_task">Check Plate</string>
+    <string name="sub_title_activity_task2">Send Action</string>
+    <string name="sub_title_activity_task3">Change Post</string>
+    <string name="button_return_post">Change</string>
+    <string name="hint_declarer_accider">Declare accident</string>
+    <string name="activity_good">Sticker GREEN</string>
+    <string name="activity_bad">Sticker RED</string>
+    <string name="CONFIRMATION">CONFIRM</string>
+</resources>

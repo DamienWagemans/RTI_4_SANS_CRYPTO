@@ -38,19 +38,19 @@ public class MainActivity extends AppCompatActivity {
                 try {
 
                     if(Ip.getText().toString().isEmpty() || Port.getText().toString().isEmpty())
-                        Toast.makeText(MainActivity, "Champs Obligatoire", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity, "ERROR", Toast.LENGTH_LONG).show();
                     else{
                         requete_from_views rfv = new requete_from_views();
                         Server_Information cts = new Server_Information(Integer.parseInt(Port.getText().toString()), Ip.getText().toString());
                         rfv.setRequete(cts);
                         rfv.setType(requete_from_views.CONNECT);
                         if((boolean)rfv.execute().get()){
-                            Toast.makeText(MainActivity, "Connexion effectuer", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity, "OK", Toast.LENGTH_LONG).show();
                             log.setEnabled(true);
                             connect.setEnabled(false);
                         }
                         else
-                            Toast.makeText(MainActivity, "Erreur de connexion", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity, "ERROR", Toast.LENGTH_SHORT).show();
                     }
                 } catch (ExecutionException e) {
                     e.printStackTrace();
@@ -72,12 +72,12 @@ public class MainActivity extends AppCompatActivity {
                     rfv.setRequete(req);
                     ReponseCONTROLID rep = (ReponseCONTROLID) rfv.execute().get();
                     if(rep.getTypeRequete() == ReponseCONTROLID.LOGIN_OK){
-                        Toast.makeText(MainActivity, "Login effectuer", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity, "OK LOGIN", Toast.LENGTH_SHORT).show();
                         Intent otherActivity = new Intent(getBaseContext(), CustomsPostActivity.class);
                         startActivity(otherActivity);
                     }
                     else
-                        Toast.makeText(MainActivity, "Login Fail", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity, "ERROR LOGIN", Toast.LENGTH_LONG).show();
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
